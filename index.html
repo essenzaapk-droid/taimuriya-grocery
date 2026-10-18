@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taimuriya Grocery | Fresh Groceries</title>
+
+  <style>
+    :root {
+      --blue: #102747;
+      --blue-light: #1b3b63;
+      --orange: #f58a24;
+      --orange-light: #fff0df;
+      --background: #fffaf4;
+      --white: #ffffff;
+      --text: #243449;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--blue);
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    header h1 span {
+      color: var(--orange);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--orange);
+    }
+
+    .hero {
+      padding: 65px 7%;
+      text-align: center;
+      background: linear-gradient(135deg, #fff0df, #ffe0bb);
+    }
+
+    .hero .tagline {
+      color: #c6660b;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .hero h2 {
+      font-size: clamp(30px, 5vw, 48px);
+      color: var(--blue);
+      margin: 15px 0;
+    }
+
+    .hero p {
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    .shop-button {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--blue);
+      padding: 14px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .shop-button:hover {
+      background: var(--blue);
+      color: white;
+    }
+
+    .search {
+      display: block;
+      width: 86%;
+      max-width: 550px;
+      margin: 30px auto;
+      padding: 14px;
+      border: 2px solid var(--orange);
+      border-radius: 9px;
+      font-size: 16px;
+      outline-color: var(--blue);
+    }
+
+    main {
+      padding: 20px 6%;
+    }
+
+    .section-title {
+      color: var(--blue);
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .section-description {
+      margin-bottom: 25px;
+      color: #687386;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 22px;
+    }
+
+    .product {
+      background: var(--white);
+      padding: 22px 16px;
+      border: 1px solid #f4dfca;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 5px 18px #1027470c;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 22px #10274718;
+    }
+
+    .emoji {
+      font-size: 65px;
+      margin: 8px;
+    }
+
+    .product h3 {
+      color: var(--blue);
+      margin: 12px 0;
+    }
+
+    .price {
+      color: #d66d0d;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    button {
+      background: var(--orange);
+      color: var(--blue);
+      border: none;
+      padding: 11px 15px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      margin: 4px;
+    }
+
+    button:hover {
+      background: var(--blue);
+      color: white;
+    }
+
+    .cart {
+      margin-top: 45px;
+      padding: 25px;
+      background: white;
+      border: 2px solid var(--orange);
+      border-radius: 14px;
+    }
+
+    .cart h2 {
+      color: var(--blue);
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #eee;
+      padding: 12px 0;
+    }
+
+    .total {
+      color: var(--blue);
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .clear-button {
+      background: var(--blue);
+      color: white;
+    }
+
+    footer {
+      margin-top: 45px;
+      background: var(--blue);
+      color: white;
+      text-align: center;
+      padding: 28px 15px;
+    }
+
+    footer strong {
+      color: var(--orange);
+    }
+
+    footer p {
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 23px;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 45px 6%;
+      }
+
+      main {
+        padding: 20px 5%;
+      }
+
+      .cart {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🛒 Taimuriya <span>Grocery</span></h1>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <p class="tagline">FRESH • QUALITY • VALUE</p>
+    <h2>Your Daily Needs, All in One Place!</h2>
+    <p>
+      Welcome to Taimuriya Grocery.<br>
+      Fresh groceries for your family at affordable prices.
+    </p>
+    <a class="shop-button" href="#products">SHOP NOW →</a>
+  </section>
+
+  <input
+    class="search"
+    id="search"
+    type="search"
+    placeholder="🔍 Search groceries..."
+    oninput="showProducts()"
+    aria-label="Search groceries"
+  >
+
+  <main>
+    <section>
+      <h2 class="section-title" id="products">Our Products</h2>
+      <p class="section-description">
+        Explore our everyday grocery essentials.
+      </p>
+      <div class="products" id="product-list"></div>
+    </section>
+
+    <section class="cart" id="cart">
+      <h2>🛒 Your Shopping Cart</h2>
+      <div id="cart-items">Your cart is empty.</div>
+
+      <p class="total">
+        Total: Rs. <span id="total">0</span>
+      </p>
+
+      <button onclick="checkout()">Place Order</button>
+      <button class="clear-button" onclick="clearCart()">
+        Clear Cart
+      </button>
+
+      <p><small>Prices are demo prices and can be updated.</small></p>
+    </section>
+  </main>
+
+  <footer>
+    <h2>🛒 Taimuriya <strong>Grocery</strong></h2>
+    <p>Freshness You Can Trust!</p>
+    <p>Thank you for shopping with us.</p>
+    <p>© 2026 Taimuriya Grocery. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const products = [
+      { id: 1, name: "Apples", emoji: "🍎", price: 300 },
+      { id: 2, name: "Milk", emoji: "🥛", price: 220 },
+      { id: 3, name: "Eggs", emoji: "🥚", price: 350 },
+      { id: 4, name: "Bananas", emoji: "🍌", price: 180 },
+      { id: 5, name: "Bread", emoji: "🍞", price: 150 },
+      { id: 6, name: "Tomatoes", emoji: "🍅", price: 120 }
+    ];
+
+    let cart = [];
+
+    function showProducts() {
+      const search = document
+        .getElementById("search")
+        .value.trim()
+        .toLowerCase();
+
+      const filtered = products.filter(product =>
+        product.name.toLowerCase().includes(search)
+      );
+
+      const list = document.getElementById("product-list");
+
+      if (filtered.length === 0) {
+        list.innerHTML = "<p>No products found. Try another name.</p>";
+        return;
+      }
+
+      list.innerHTML = filtered.map(product => `
+        <article class="product">
+          <div class="emoji">${product.emoji}</div>
+          <h3>${product.name}</h3>
+          <p class="price">Rs. ${product.price}</p>
+          <button onclick="addToCart(${product.id})">
+            Add to Cart +
+          </button>
+        </article>
+      `).join("");
+    }
+
+    function addToCart(id) {
+      const product = products.find(item => item.id === id);
+      const item = cart.find(item => item.id === id);
+
+      if (item) {
+        item.quantity++;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+
+      updateCart();
+    }
+
+    function changeQuantity(id, amount) {
+      const item = cart.find(item => item.id === id);
+
+      if (!item) return;
+
+      item.quantity += amount;
+      cart = cart.filter(item => item.quantity > 0);
+
+      updateCart();
+    }
+
+    function updateCart() {
+      const container = document.getElementById("cart-items");
+
+      if (cart.length === 0) {
+        container.textContent = "Your cart is empty.";
+      } else {
+        container.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <span>${item.emoji} ${item.name}</span>
+            <span>Rs. ${item.price * item.quantity}</span>
+            <span>
+              <button
+                aria-label="Decrease ${item.name}"
+                onclick="changeQuantity(${item.id}, -1)">−</button>
+              ${item.quantity}
+              <button
+                aria-label="Increase ${item.name}"
+                onclick="changeQuantity(${item.id}, 1)">+</button>
+            </span>
+          </div>
+        `).join("");
+      }
+
+      const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+      );
+
+      const count = cart.reduce(
+        (sum, item) => sum + item.quantity, 0
+      );
+
+      document.getElementById("total").textContent =
+        total.toLocaleString("en-PK");
+
+      document.getElementById("cart-count").textContent = count;
+    }
+
+    function clearCart() {
+      cart = [];
+      updateCart();
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Please add products to your cart first.");
+        return;
+      }
+
+      const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+      );
+
+      alert(
+        "Taimuriya Grocery\n" +
+        "Cart total: Rs. " + total.toLocaleString("en-PK") +
+        "\n\nThis is a demo. Your order has not been submitted. " +
+        "An order system needs to be connected."
+      );
+    }
+
+    showProducts();
+    updateCart();
+  </script>
+
+</body>
+</html>
