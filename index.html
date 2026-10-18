@@ -49,6 +49,35 @@
       color: var(--orange);
     }
 
+    .brand-logo {
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: white;
+      flex-shrink: 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand h1 {
+      margin: 0;
+    }
+
+    footer .footer-logo {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: white;
+      display: block;
+      margin: 0 auto 12px;
+    }
+
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -244,6 +273,15 @@
         font-size: 23px;
       }
 
+      .brand-logo {
+        width: 58px;
+        height: 58px;
+      }
+
+      .brand {
+        justify-content: center;
+      }
+
       nav {
         justify-content: center;
         gap: 14px;
@@ -267,7 +305,10 @@
 <body>
 
   <header>
-    <h1>🛒 Taimuriya <span>Grocery</span></h1>
+    <div class="brand">
+      <img src="images/logo.png" alt="Al Taimuriya Cash & Carry logo" class="brand-logo">
+      <h1>Al Taimuriya <span>Grocery</span></h1>
+    </div>
 
     <nav>
       <a href="#home">Home</a>
